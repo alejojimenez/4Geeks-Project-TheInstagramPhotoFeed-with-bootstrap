@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>            
+        <link rel="stylesheet" type="text/css" href="./styles.css" />
+        <title>Instagram with Bootstrap</title>
+    </head>
+    <body>
+        <!-- Button UP -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <div>
+            <!-- Navbar con opciones en la parte superior -->
+            <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <ul class="navbar-nav navbar-left">
+                        <img src="data:image/png;base64,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" alt="Instagram" style="width:65px;">
+                        <a class="navbar-brand" href="#">Instagram</a>
+                    </ul>
+                    <ul class="navbar-nav navbar-right">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            Create a new post
+                        </button>
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br>
+            <br>
+            <!-- Selector de Vistas -->
+            <div class="row bg-white justify-content-center">
+                <!-- Botones de Link -->
+                <div>
+                    <a href="./viewgrid.html" class="btn btn-link">
+                        <i class="fa fa-grip-horizontal fa-2x"></i>
+                    </a>
+                    <a href="index.html" class="btn btn-link">
+                        <i class="fa fa-dice-one fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Container de Card -->
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My first photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRxL5QtpvnUtBaMKw7FN0k4wslIkPW50eGQnQ&usqp=CAU" alt="Card image">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">23 Likes</p>
+                        <p class="card-text" style="text-align:justify">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                            those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero
+                            are also reproduced in their exact original form, accompanied by English versions from the 1914
+                            translation by H. Rackham.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My second photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://thumbs-prod.si-cdn.com/ej9KRK9frB5AXD6W9LXKFnuRc-0=/fit-in/1600x0/https://public-media.si-cdn.com/filer/ad/7b/ad7b3860-ad5f-43dc-800e-af57830cd1d3/labrador.jpg">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">12 Likes</p>
+                        <p class="card-text" style="text-align:justify">Curabitur rhoncus, eros eget fermentum semper, lectus diam lobortis neque, sit
+                            amet facilisis augue ante non mi. Praesent tempor est id rutrum finibus. Duis convallis lacus
+                            libero, in lacinia libero tristique quis. Sed vitae mi blandit, aliquet massa pellentesque,
+                            iaculis lorem. Proin aliquam venenatis neque quis malesuada. Donec non sem sed ligula volutpat
+                            ornare id id nulla. Fusce egestas eros fermentum dui viverra auctor. Maecenas quis lorem elit.
+                            Aliquam faucibus sollicitudin purus et finibus. Mauris arcu eros, aliquam at turpis eget,
+                            fermentum commodo massa.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My third photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://empresas.blogthinkbig.com/wp-content/uploads/2020/03/post-blog-10tips-teletrabajo-1.jpg?fit=1200%2C675">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">28 Likes</p>
+                        <p class="card-text" style="text-align:justify">Integer eu purus efficitur libero laoreet sodales ac vitae augue. Morbi quam
+                            felis, auctor eget tincidunt lobortis, feugiat non tortor. Nulla ut suscipit justo. Vivamus
+                            commodo magna in libero ullamcorper, a placerat dolor congue. Vestibulum accumsan non nisl
+                            vestibulum facilisis. In id erat dapibus, dapibus mi eu, iaculis nunc. Maecenas sed tempor
+                            lacus, sit amet volutpat nisl. In magna ante, aliquam ac diam sed, tempor malesuada magna.
+                            Vestibulum nunc ligula, cursus quis molestie eleifend, efficitur sed neque.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My fourth photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://www.lavanguardia.com/r/GODO/LV/p5/WebSite/2018/09/28/Recortada/img_abarredo_20180916-234020_imagenes_lv_terceros_airpower-kTKE-U452064327676e3G-992x558@LaVanguardia-Web.jpg">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">15 Likes</p>
+                        <p class="card-text" style="text-align:justify">Proin ut ipsum nisi. Duis dictum laoreet diam quis efficitur. In hac habitasse
+                            platea dictumst. Nulla eget turpis vestibulum, lacinia justo a, feugiat leo. Phasellus pulvinar,
+                            eros ac condimentum blandit, neque est tincidunt purus, eu mattis enim dolor eu ipsum. Duis
+                            ultricies sodales est, in pharetra lacus fermentum quis. Vivamus interdum euismod nibh, vitae
+                            sollicitudin lacus elementum eget. Quisque rutrum efficitur lacus lobortis malesuada.
+                            Suspendisse a arcu varius ex tempor ultrices ac at massa.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My fifth photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRixOCka3afzVQnYyXsJFNEsqh1PhK7pMgjuw&usqp=CAU">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">56 Likes</p>
+                        <p class="card-text" style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in
+                            dapibus nisi, in mollis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                            Curabitur posuere nulla quis porta ornare. Morbi eget ligula ac arcu varius elementum at in
+                            urna. Aenean at congue magna, ac aliquet orci. Nunc congue pretium fringilla. Fusce porttitor
+                            varius efficitur. Proin placerat, leo quis viverra interdum, odio velit fermentum orci, eget
+                            condimentum tortor nisl vel sem. Fusce varius elit quis magna tincidunt, in posuere purus
+                            dapibus. Sed eleifend mattis pharetra. Nulla varius ipsum a nulla blandit, eget efficitur enim
+                            scelerisque. Vivamus varius, leo nec pretium malesuada, erat magna viverra elit, a scelerisque
+                            ante mi hendrerit neque. Integer bibendum dictum eleifend. Sed ut tellus massa. Maecenas eget ex
+                            condimentum, semper orci ut, sagittis lacus.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My sixth photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://elceo.com/wp-content/uploads/2020/04/trump_casa_v.jpg">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">11 Likes</p>
+                        <p class="card-text" style="text-align:justify">Nulla eros diam, elementum at accumsan at, mattis a quam. Phasellus efficitur
+                            tortor est, at suscipit mauris maximus venenatis. Integer at diam a elit aliquet pharetra.
+                            Suspendisse non tempor ipsum. Etiam non egestas mauris, eget viverra orci. Quisque a sagittis
+                            lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam suscipit rutrum neque.
+                            Morbi nulla augue, hendrerit et nisi a, iaculis tincidunt mi. Duis ac arcu eros. Pellentesque
+                            consectetur justo sed nisl fermentum molestie. In convallis tortor at orci sollicitudin aliquam.
+                            Maecenas ut pellentesque turpis. Vestibulum ante ipsum primis in faucibus orci luctus et
+                            ultrices posuere cubilia curae.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My first video<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://media.npr.org/assets/img/2020/04/10/covid_asymptomic_NPR_10Apr.gif">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">62 Likes</p>
+                        <p class="card-text" style="text-align:justify">Many desktop publishing packages and web page editors now use Lorem Ipsum as
+                            their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
+                            their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+                            purpose (injected humour and the like).</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My seventh photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ0Ao2OJAUjHTOcxDQAeXte6VRhqjkNl_w3xQ&usqp=CAU">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">31 Likes</p>
+                        <p class="card-text" style="text-align:justify">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                            as necessary, making this the first true generator on the Internet. It uses a dictionary of over
+                            200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum
+                            which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
+                            injected humour, or non-characteristic words etc.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row bg-white justify-content-center">
+                <div class="card" style="width:500px">
+                    <h5 class="card-title"> My ninth photo<i class="fa fa-ellipsis-v fa-pull-right"></i></h5>
+                    <img class="card-img-top" src="https://cemcaviajesyturismo.com/wp-content/uploads/2020/03/playas-de-Venezuela.jpg">
+                    <div class="card-body">
+                        <i class="fa fa-heart fa-2x"></i>
+                        <i class="far fa-comment fa-2x fa-fw"></i>
+                        <i class="far fa-paper-plane fa-2x"></i>
+                        <i class="far fa-bookmark fa-2x fa-pull-right"></i>
+                        <p class="card-text">89 Likes</p>
+                        <p class="card-text" style="text-align:justify">There are many variations of passages of Lorem Ipsum available, but the
+                            majority have suffered alteration in some form, by injected humour, or randomised words which
+                            don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need
+                            to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <textarea class="form-control"></textarea>
+                            <br>
+                            <i class="fa fa-camera fa-border"></i>
+                            <i class="fa fa-map-marker fa-border"></i>                                                        
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Declaracion de Scripts -->
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
+    </body>
+</html>
